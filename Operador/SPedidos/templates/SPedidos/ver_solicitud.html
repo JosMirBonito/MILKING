@@ -1,0 +1,38 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'spedidos/detalle_entrega.css' %}">
+
+<div class="entrega-detalle">
+  <h1>Detalle del Pedido #{{ pedido.id_pedido }}</h1>
+  <p>Cliente: {{ pedido.nombre_cliente }}</p>
+  <p>Fecha: {{ pedido.fecha }}</p>
+  <p><strong>Estado:</strong> {{ pedido.estado_envio }}</p>
+
+  {% if pedido.estado_envio == "Aceptado" %}
+    <form method="post" style="margin-bottom: 1em;">
+      {% csrf_token %}
+      <button type="submit">Enviar</button>
+    </form>
+  {% endif %}
+
+  <h2>Información de Entrega</h2>
+  <p><strong>Dirección:</strong> {{ pedido.direccion_envio }}</p>
+  <p><strong>Teléfono:</strong> {{ pedido.telefono_envio }}</p>
+  <p><strong>Referencia:</strong> {{ pedido.referencia_envio }}</p>
+
+  <table>
+    <tr>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Subtotal</th>
+    </tr>
+    {% for detalle in detalles %}
+    <tr>
+      <td>{{ detalle.id_producto.nombre_producto }}</td>
+      <td>{{ detalle.cantidad }}</td>
+      <td>{{ detalle.subtotal }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <p><strong>Total:</strong> {{ total }}</p>
+  <a href="{% url 'ver_solicitudes_pedido' %}">Volver a solicitudes</a>
+</div>

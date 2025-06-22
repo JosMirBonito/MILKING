@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MILKING</title>
+
+  <!-- Fuente Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+  <!-- CSS estático -->
+  <link rel="stylesheet" href="{% static 'login/styles.css' %}" />
+</head>
+<body class="login-page">
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+    <h3>Bienvenido a MilKing</h3>
+
+    <label for="username">Username</label>
+    <input type="text" placeholder="Email or Phone" id="username" name="username" required />
+
+    <label for="password">Password</label>
+    <input type="password" placeholder="Password" id="password" name="password" required />
+
+    <button type="submit">Log In</button>
+
+    
+  </form>
+</body>
+</html>

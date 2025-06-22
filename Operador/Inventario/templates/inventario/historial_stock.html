@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Historial de Stock</title>
+</head>
+<body>
+    <h1>Historial de cambios de stock para {{ producto.nombre_producto }}</h1>
+    {% if historial %}
+        <table border="1">
+            <tr>
+                <th>Fecha</th>
+                <th>Cambio</th>
+                <th>Stock anterior</th>
+                <th>Stock nuevo</th>
+            </tr>
+            {% for cambio in historial %}
+            <tr>
+                <td>{{ cambio.fecha }}</td>
+                <td>{{ cambio.cambio }}</td>
+                <td>{{ cambio.stock_anterior }}</td>
+                <td>{{ cambio.stock_nuevo }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No hay historial de cambios de stock.</p>
+    {% endif %}
+    <a href="{% url 'detalle_producto' producto.id_producto %}">Volver al detalle</a>
+</body>
+</html>

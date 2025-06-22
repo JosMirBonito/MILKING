@@ -1,0 +1,210 @@
+/* Contenedor principal más compacto */
+.inicio-hero-bg {
+  max-width: 900px; /* Reducido de 1100px */
+  margin: 40px auto; /* Reducido de 60px */
+  padding: 30px 40px 40px; /* Reducido de 40px 50px 60px */
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1a1a1a;
+  position: relative;
+  overflow: visible;
+}
+
+/* Header más compacto */
+.inicio-hero-header {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Reducido de 25px */
+  margin-bottom: 35px; /* Reducido de 50px */
+}
+
+.hero-logo {
+  width: 60px; /* Reducido de 70px */
+  height: 60px; /* Reducido de 70px */
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(58, 68, 99, 0.3);
+  transition: transform 0.4s ease;
+}
+.hero-logo:hover {
+  transform: rotate(15deg) scale(1.15);
+}
+
+.hero-title {
+  font-size: 2.8rem; /* Reducido de 3.4rem */
+  font-weight: 900;
+  color: #243B6B;
+  margin: 0;
+  letter-spacing: 1.3px;
+  text-shadow: 1px 1px 4px rgba(36, 59, 107, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.1rem; /* Reducido de 1.25rem */
+  color: #E94B3C;
+  font-weight: 600;
+  margin-top: 4px; /* Reducido de 6px */
+  font-style: italic;
+  letter-spacing: 0.8px;
+}
+
+/* Imagen banner más compacta */
+.hero-img-banner {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(36, 59, 107, 0.3);
+  margin-bottom: 40px; /* Reducido de 60px */
+  position: relative;
+  cursor: zoom-in;
+  transition: transform 0.5s ease;
+}
+.hero-img-banner:hover {
+  transform: scale(1.06);
+}
+.main-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Contenedor de cards más compacto */
+.vision-mission-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px; /* Reducido de 40px */
+  justify-items: center;
+}
+
+/* Cards más compactas */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 380px; /* Reducido de 420px */
+  background: linear-gradient(145deg, #ffffff, #e4e9ff);
+  border-radius: 26px;
+  box-shadow:
+    0 8px 18px rgba(36, 59, 107, 0.12),
+    0 30px 60px rgba(36, 59, 107, 0.2);
+  padding: 25px 25px 30px; /* Reducido de 35px 35px 40px */
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow:
+    0 20px 40px rgba(36, 59, 107, 0.3),
+    0 40px 90px rgba(36, 59, 107, 0.38);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Reducido de 16px */
+  margin-bottom: 20px; /* Reducido de 26px */
+  color: #243B6B;
+}
+
+.card-header i {
+  font-size: 2.2rem; /* Reducido de 2.6rem */
+  color: #E94B3C;
+  transition: color 0.3s ease;
+}
+
+.card:hover .card-header i {
+  color: #3169FF;
+}
+
+.card-header h2 {
+  font-size: 1.8rem; /* Reducido de 2.2rem */
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 0.9px;
+  text-shadow: 1px 1px 3px rgba(36, 59, 107, 0.2);
+}
+
+/* Texto de contenido */
+.card p {
+  font-size: 1rem; /* Reducido de 1.1rem */
+  line-height: 1.6; /* Reducido de 1.7 */
+  color: #3c3c3c;
+  flex-grow: 1;
+  user-select: text;
+}
+
+/* Imagen dentro de card con borde curvo y sombra */
+.card-img {
+  margin-top: 20px; /* Reducido de 28px */
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(36, 59, 107, 0.25);
+  transition: transform 0.4s ease;
+}
+
+.card-img:hover {
+  transform: scale(1.07);
+}
+
+/* Misión con degradado rojo animado */
+.mission-card {
+  background: linear-gradient(135deg, #ffe8e5, #f5a499);
+  border: 2px solid #E94B3C;
+  box-shadow:
+    0 8px 18px rgba(233, 75, 60, 0.2),
+    0 25px 55px rgba(233, 75, 60, 0.3);
+  color: #b31a12;
+}
+
+.mission-card:hover {
+  box-shadow:
+    0 20px 40px rgba(179, 26, 18, 0.4),
+    0 50px 90px rgba(179, 26, 18, 0.5);
+}
+
+/* Visión con degradado azul animado */
+.vision-card {
+  background: linear-gradient(135deg, #dae3ff, #6a8fff);
+  border: 2px solid #243B6B;
+  box-shadow:
+    0 8px 18px rgba(36, 59, 107, 0.25),
+    0 25px 55px rgba(36, 59, 107, 0.3);
+  color: #0f2348;
+}
+
+.vision-card:hover {
+  box-shadow:
+    0 20px 40px rgba(15, 35, 72, 0.4),
+    0 50px 90px rgba(15, 35, 72, 0.5);
+}
+
+/* Responsive: ajuste para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .inicio-hero-bg {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .vision-mission-container {
+    gap: 25px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .card-header h2 {
+    font-size: 1.6rem;
+  }
+}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Salida</title>
+</head>
+<body>
+    <h1>Registrar salida de {{ producto.nombre_producto }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="cantidad">Cantidad a retirar:</label>
+        <input type="number" name="cantidad" id="cantidad" min="1" max="{{ producto.stock }}" required>
+        <button type="submit">Registrar salida</button>
+    </form>
+    <a href="{% url 'detalle_producto' producto.id_producto %}">Volver al detalle</a>
+</body>
+</html>

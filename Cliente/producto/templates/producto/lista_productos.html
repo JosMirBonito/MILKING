@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Productos Disponibles{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'producto/lista_producto.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="producto-lista-container">
+    <h1>Productos Disponibles</h1>
+
+    <h2>Ver productos por categoría</h2>
+    <form id="categoria-form" method="get">
+        <select id="categoria-select">
+            <option value="{% url 'producto:lista_productos' %}" 
+                    {% if not categoria_actual %}selected{% endif %}>
+                Todas
+            </option>
+            {% for cat in categorias %}
+            <option value="{% url 'producto:productos_por_categoria' cat.id_categoria %}"
+                    {% if categoria_actual.id_categoria == cat.id_categoria %}selected{% endif %}>
+                {{ cat.nombre_categoria }}
+            </option>
+            {% endfor %}
+        </select>
+    </form>
+
+    <ul class="product-list">
+        {% for producto in productos %}
+        <li>
+            <span class="product-info">
+                <strong>{{ producto.nombre_producto }}</strong> - Precio: S/.{{ producto.precio }} - Stock: {{ producto.stock }}
+            </span>
+            <form action="{% url 'producto:agregar_al_carrito' producto.id_producto %}" method="post" class="cart-form">
+                {% csrf_token %}
+                <input type="number" name="cantidad" min="1" max="{{ producto.stock }}" value="1" required>
+                <button type="submit" class="add-to-cart-btn">Agregar al carrito</button>
+            </form>
+        </li>
+        {% empty %}
+        <li>No hay productos disponibles.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'producto:ver_carrito' %}" class="ver-carrito-link">Ver carrito</a>
+
+    {% if messages %}
+    <ul class="messages-list">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+
+<script>
+    document.getElementById('categoria-select').addEventListener('change', function() {
+        if (this.value) {
+            window.location.href = this.value;
+        }
+    });
+</script>
+{% endblock %}

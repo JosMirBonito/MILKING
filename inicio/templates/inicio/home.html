@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'inicio/home.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+{% endblock %}
+{% block content %}
+<div class="inicio-hero-bg">
+    <div class="inicio-hero-header">
+        <img src="{% static 'inicio/logo.png' %}" alt="Logo MilKing" class="hero-logo">
+        <div>
+            <h1 class="hero-title">Bienvenido a MilKing</h1>
+            <p class="hero-subtitle">Calidad, frescura y pasión por los lácteos</p>
+        </div>
+    </div>
+    <div class="hero-img-banner">
+        <img src="{% static 'inicio/fondo_granja1.jpg' %}" alt="Granja" class="main-img">
+        <div class="hero-img-overlay"></div>
+    </div>
+    <div class="vision-mission-container">
+        <div class="card vision-card glass">
+            <div class="card-header">
+                <i class="fas fa-eye fa-2x"></i>
+                <h2>Visión</h2>
+            </div>
+            <p>
+                La visión de MilKing es convertirse en la empresa líder en la distribución y comercialización de productos lácteos en Latinoamérica, garantizando frescura, calidad y confianza a través de innovación, tecnología y talento humano.
+            </p>
+            <img src="{% static 'inicio/vision.jpg' %}" alt="Visión" class="card-img">
+        </div>
+        <div class="card mission-card glass">
+            <div class="card-header">
+                <i class="fas fa-flag fa-2x"></i>
+                <h2>Misión</h2>
+            </div>
+            <p>
+                Ofrecer productos lácteos de alta calidad, nutritivos y accesibles, asegurando eficiencia, sustentabilidad y bienestar para nuestros clientes y colaboradores, impulsando el desarrollo sostenible del sector alimentario.
+            </p>
+            <img src="{% static 'inicio/mision.jpg' %}" alt="Misión" class="card-img">
+        </div>
+    </div>
+</div>
+{% endblock %}

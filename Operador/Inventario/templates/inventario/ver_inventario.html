@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+    <!-- Cargar archivo CSS desde la carpeta estática -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Inventario/ver_inventario.css' %}">
+</head>
+<body>
+    <div class="inventario-container">
+        <h1>Inventario de Productos</h1>
+        <table class="tabla-inventario">
+            <tr>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Acciones</th>
+            </tr>
+            {% for producto in productos %}
+            <tr>
+                <td>{{ producto.nombre_producto }}</td>
+                <td>{{ producto.id_categoria.nombre_categoria }}</td>
+                <td>{{ producto.precio }}</td>
+                <td>{{ producto.stock }}</td>
+                <td>
+                    <a href="{% url 'detalle_producto' producto.id_producto %}">Ver detalles</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No hay productos en el inventario.</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <a href="{% url 'reporte_inventario' %}" class="reporte-link">Generar reporte de inventario</a>
+    </div>
+</body>
+</html>

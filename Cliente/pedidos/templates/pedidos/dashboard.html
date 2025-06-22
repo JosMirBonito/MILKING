@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard Pedidos{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'pedidos/dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-page">
+    <h1>Dashboard Pedidos</h1>
+    {% if pedidos %}
+        <ul>
+        {% for pedido in pedidos %}
+            <li>
+                <span class="pedido-info">
+                    <!-- En lugar de mostrar pedido.id_pedido, usa pedido.numero_visual -->
+                    Pedido #{{ pedido.numero_visual }} - Cliente: {{ pedido.nombre_cliente }}
+                </span>
+                <a href="{% url 'pedidos:detalle_pedido' pedido.id_pedido %}" class="detalle-btn">
+                    Ver Detalles
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay pedidos</p>
+    {% endif %}
+</div>
+{% endblock %}

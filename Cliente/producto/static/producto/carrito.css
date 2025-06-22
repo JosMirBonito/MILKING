@@ -1,0 +1,79 @@
+.carrito-page {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f6fb;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+.carrito-page h1 {
+    color: #2a4d69;
+    margin-top: 32px;
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.carrito-page table {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 32px auto;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+}
+.carrito-page th, .carrito-page td {
+    border: 1px solid #e0e0e0;
+    padding: 12px 16px;
+    text-align: center;
+    font-size: 1rem;
+}
+.carrito-page th {
+    background: #e0e0e0;
+    color: #2a4d69;
+    font-weight: 600;
+}
+.carrito-page tr:nth-child(even) {
+    background: #f4f6fb;
+}
+.carrito-page a {
+    display: inline-block;
+    margin-top: 18px;
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.carrito-page a:hover {
+    color: #0d47a1;
+    text-decoration: underline;
+}
+.carrito-page p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #333;
+}
+.carrito-page button[type="submit"] {
+    display: block;
+    margin: 24px auto 0 auto;
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    transition: background 0.2s;
+}
+.carrito-page button[type="submit"]:hover {
+    background: #0d47a1;
+}
+.carrito-page ul {
+    max-width: 700px;
+    margin: 16px auto;
+    padding: 0 24px;
+    color: #e53935;
+}

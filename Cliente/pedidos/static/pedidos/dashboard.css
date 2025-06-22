@@ -1,0 +1,65 @@
+.dashboard-page {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
+    padding: 32px 40px 24px 40px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.dashboard-page h1 {
+    color: #2a4d69;
+    margin-bottom: 24px;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.dashboard-page ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-page li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4f6fb;
+    margin-bottom: 16px;
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.04);
+}
+
+.dashboard-page .pedido-info {
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.dashboard-page .detalle-btn {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-left: 16px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    display: inline-block;
+}
+
+.dashboard-page .detalle-btn:hover {
+    background: #0d47a1;
+}
+
+.dashboard-page p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #e53935;
+}

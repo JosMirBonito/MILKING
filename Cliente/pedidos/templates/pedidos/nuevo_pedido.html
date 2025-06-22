@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Registrar Nuevo Pedido</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Guardar Pedido</button>
+</form>
+<a href="{% url 'pedidos:dashboard_pedidos' %}">Volver al Dashboard</a>
+{% endblock %}

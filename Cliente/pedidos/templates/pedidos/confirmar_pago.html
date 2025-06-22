@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Confirmar Pago{% endblock %}
+
+{% block content %}
+<!-- Agrega esto en tu base.html dentro del <head> o al inicio del bloque content si no tienes acceso al head -->
+<link rel="stylesheet" href="{% static 'pedidos/confirmar_pago.css' %}">
+
+<h2>Confirmar Pago del Pedido #{{ pedido.id_pedido }}</h2>
+
+<p>Total a pagar: S/. {{ pedido.total }}</p>
+
+<form method="post" id="pago-form">
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <div id="tarjeta-fields" style="display:none; margin-bottom: 15px;">
+    <label>Número de Tarjeta:</label>
+    <input type="text" name="numero_tarjeta" /><br>
+    <label>Fecha de Expiración:</label>
+    <input type="text" name="expiracion" placeholder="MM/AA" /><br>
+    <label>CVV:</label>
+    <input type="text" name="cvv" /><br>
+    <label>Nombre en la Tarjeta:</label>
+    <input type="text" name="nombre_tarjeta" /><br>
+  </div>
+
+  <div id="yape-fields" style="display:none; margin-bottom: 15px;">
+    <label>Escanea el código QR con Yape:</label><br>
+    <img src="{% static 'pedidos/yape_qr.png' %}" alt="QR Yape" style="width:200px; margin-top:10px;">
+  </div>
+
+  <button type="submit">Confirmar Pago</button>
+</form>
+
+<a href="{% url 'pedidos:dashboard_pedidos' %}">Volver al Dashboard</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const metodoPagoSelect = document.querySelector('select[name="metodo_pago"]');
+  const tarjetaFields = document.getElementById('tarjeta-fields');
+  const yapeFields = document.getElementById('yape-fields');
+
+  function mostrarCampos() {
+    const selected = metodoPagoSelect.options[metodoPagoSelect.selectedIndex].text.toLowerCase();
+    tarjetaFields.style.display = selected.includes('tarjeta') ? 'block' : 'none';
+    yapeFields.style.display = selected.includes('yape') ? 'block' : 'none';
+  }
+
+  metodoPagoSelect.addEventListener('change', mostrarCampos);
+  mostrarCampos(); // Inicializa al cargar
+});
+</script>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Producto</title>
+    <!-- Cargar archivo CSS desde la carpeta estática -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Inventario/detalle_producto.css' %}">
+</head>
+<body>
+    <div class="detalle-producto-container">
+        <h1>{{ producto.nombre_producto }}</h1>
+        <p>Categoría: {{ producto.id_categoria.nombre_categoria }}</p>
+        <p>Precio: {{ producto.precio }}</p>
+        <p>Stock: {{ producto.stock }}</p>
+        <a href="{% url 'actualizar_precio' producto.id_producto %}" class="btn">Actualizar precio de producto</a><br>
+        <a href="{% url 'historial_stock' producto.id_producto %}" class="btn">Ver historial de cambios de stock de producto</a><br>
+        <a href="{% url 'ver_inventario' %}" class="back-link">Volver al inventario</a><br>
+        <a href="{% url 'registrar_ingreso' producto.id_producto %}" class="btn">Registrar ingreso de producto</a><br>
+        <a href="{% url 'registrar_salida' producto.id_producto %}" class="btn">Registrar salida de producto</a><br>
+    </div>
+</body>
+</html>

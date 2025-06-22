@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'pedidos/detalle_pedido.css' %}">
+{% endblock %}
+{% block content %}
+<div class="detalle-pedido-container">
+  <div class="container">
+    <h2>Detalle Pedido #{{ numero_visual }}</h2>
+    <p>Cliente: {{ pedido.nombre_cliente }}</p>
+    <p>Fecha: {{ pedido.fecha }}</p>
+    {% if pedido.estado_envio == 'Pagado' %}
+    <p>Estado: Pagado</p>
+    {% elif pedido.estado_envio == 'Pago en proceso' %}
+    <p>Estado: Pago en proceso</p>
+    {% else %}
+    <p>Estado: {{ pedido.estado_envio }}</p>
+    {% endif %}
+    <p>Método de Pago: {{ pedido.pago_set.last.metodo_pago.tipo_metodo }}</p>
+
+    <h3>Productos en el Pedido</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for detalle in detalles %}
+        <tr>
+          <td>{{ detalle.id_producto.nombre_producto }}</td>
+          <td>{{ detalle.cantidad }}</td>
+          <td>{{ detalle.precio }}</td>
+          <td>{{ detalle.subtotal }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <p style="text-align:right; font-weight:bold; margin-top:10px;">
+      Total: S/. {{ total }}
+    </p>
+
+    <a href="{% url 'pedidos:dashboard_pedidos' %}">Volver al Dashboard</a>
+
+    {% if pedido.estado_envio == 'Registrado' %}
+    <form method="post" action="{% url 'pedidos:cancelar_pedido' pedido.id_pedido %}">
+      {% csrf_token %}
+      <button type="submit">Cancelar Pedido</button>
+    </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

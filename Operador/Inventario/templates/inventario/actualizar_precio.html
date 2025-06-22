@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Actualizar Precio</title>
+</head>
+<body>
+    <h1>Actualizar precio de {{ producto.nombre_producto }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="precio">Nuevo precio:</label>
+        <input type="number" step="0.01" name="precio" id="precio" value="{{ producto.precio }}" required>
+        <button type="submit">Actualizar</button>
+    </form>
+    <a href="{% url 'detalle_producto' producto.id_producto %}">Volver al detalle</a>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

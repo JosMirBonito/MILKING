@@ -1,0 +1,205 @@
+/* Contenedor general para scope */
+.producto-lista-container {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 35px 40px 50px;
+  background: #f9faff;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px rgba(45, 62, 128, 0.12);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e2a4a;
+  user-select: none;
+}
+
+/* Títulos */
+.producto-lista-container h1 {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #273965;
+  margin-bottom: 20px;
+  user-select: text;
+  text-align: center;
+}
+
+.producto-lista-container h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #536589;
+  margin-bottom: 25px;
+  user-select: none;
+}
+
+/* Formulario categoría */
+.producto-lista-container #categoria-form {
+  max-width: 280px;
+  margin-bottom: 40px;
+  user-select: none;
+}
+
+.producto-lista-container #categoria-select {
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 1rem;
+  border-radius: 14px;
+  border: 2px solid #5a75d6;
+  background: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.producto-lista-container #categoria-select:hover,
+.producto-lista-container #categoria-select:focus {
+  border-color: #2f4ad3;
+  outline: none;
+}
+
+/* Lista de productos */
+.producto-lista-container ul.product-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.producto-lista-container ul.product-list li {
+  background: #ffffff;
+  margin-bottom: 16px;
+  padding: 18px 22px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(45, 62, 128, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.producto-lista-container ul.product-list li:hover {
+  box-shadow: 0 15px 40px rgba(45, 62, 128, 0.2);
+}
+
+/* Información producto */
+.producto-lista-container .product-info {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #2a386a;
+  user-select: text;
+  flex-grow: 1;
+  margin-right: 16px;
+}
+
+/* Formulario agregar carrito */
+.producto-lista-container form.cart-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Input cantidad */
+.producto-lista-container form.cart-form input[type="number"] {
+  width: 75px;
+  padding: 9px 14px;
+  font-size: 1rem;
+  border: 2.5px solid #5a75d6;
+  border-radius: 14px;
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+.producto-lista-container form.cart-form input[type="number"]:focus {
+  border-color: #2039b3;
+  outline: none;
+}
+
+/* Botón agregar */
+.producto-lista-container .add-to-cart-btn {
+  background-color: #4568f2;
+  color: white;
+  padding: 10px 22px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 5px 15px rgba(69, 104, 242, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.producto-lista-container .add-to-cart-btn:hover {
+  background-color: #2e4dd9;
+  box-shadow: 0 8px 25px rgba(46, 77, 217, 0.8);
+}
+
+/* Link ver carrito */
+.producto-lista-container a.ver-carrito-link {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #2039b3;
+  text-decoration: none;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.producto-lista-container a.ver-carrito-link:hover {
+  color: #2e4dd9;
+  text-decoration: underline;
+}
+
+/* Mensajes */
+.producto-lista-container ul.messages-list {
+  max-width: 600px;
+  margin: 30px auto 0;
+  padding: 0;
+}
+
+.producto-lista-container ul.messages-list li {
+  padding: 14px 20px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto 10px;
+  user-select: none;
+}
+
+.producto-lista-container ul.messages-list li.error {
+  background-color: #ffe7e7;
+  border: 1.5px solid #d44646;
+  color: #d44646;
+}
+
+.producto-lista-container ul.messages-list li.success {
+  background-color: #d2f3d9;
+  border: 1.5px solid #3a7c3a;
+  color: #2a6e2a;
+}
+
+/* Responsive mobile */
+@media (max-width: 520px) {
+  .producto-lista-container {
+    padding: 25px 20px 40px;
+  }
+  
+  .producto-lista-container ul.product-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .producto-lista-container form.cart-form {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .producto-lista-container form.cart-form input[type="number"] {
+    width: 100%;
+    max-width: 120px;
+  }
+  
+  .producto-lista-container .add-to-cart-btn {
+    width: 100%;
+  }
+}

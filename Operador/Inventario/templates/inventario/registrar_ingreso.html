@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Ingreso</title>
+</head>
+<body>
+    <h1>Registrar ingreso de {{ producto.nombre_producto }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="cantidad">Cantidad a ingresar:</label>
+        <input type="number" name="cantidad" id="cantidad" min="1" required>
+        <button type="submit">Registrar ingreso</button>
+    </form>
+    <a href="{% url 'detalle_producto' producto.id_producto %}">Volver al detalle</a>
+</body>
+</html>

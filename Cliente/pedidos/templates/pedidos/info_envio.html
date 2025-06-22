@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Información de Envío para el Pedido #{{ pedido.id_pedido }}</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Continuar a Pago</button>
+</form>
+{% endblock %}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <title>{% block title %}Milking{% endblock %}</title>
+    <!-- <link rel="stylesheet" href="{% static 'login/styles.css' %}"> -->
+    {% block extra_css %}{% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background: #fff !important;
+            color: #111 !important;
+        }
+        a { color: #1a0dab; }
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+            margin-right: 40px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #1a0dab;
+            font-size: 20px;
+            margin: 0 10px;
+        }
+        nav span {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body class="home-bg">
+    <header>
+        <div>
+            <img src="{% static 'inicio/logo.png' %}" alt="Milking Logo" style="height: 100px;">
+        </div>
+        <nav>
+            <a href="{% url 'inicio' %}">Inicio</a>
+            <span>|</span>
+            <a href="{% url 'producto:lista_productos' %}">Productos</a>
+            <span>|</span>
+            <a href="{% url 'producto:ver_carrito' %}">Carrito</a>
+            <span>|</span>
+            <a href="{% url 'pedidos:dashboard_pedidos' %}">Pedidos</a>
+            <span>|</span>
+            <a href="{% url 'logout' %}">Cerrar sesión</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+        {% if messages %}
+          <ul class="messages">
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+    </main>
+    <footer>
+        <p>&copy; 2025 Milking</p>
+    </footer>
+</body>
+</html>

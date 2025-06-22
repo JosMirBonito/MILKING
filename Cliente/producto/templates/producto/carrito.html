@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'producto/carrito.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="carrito-page">
+<h1>Tu Carrito</h1>
+
+{% if productos %}
+<table>
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Subtotal</th>
+      <th></th>
+    </tr>
+  </thead>
+ <tbody>
+  {% for item in productos %}
+  <tr>
+    <td>{{ item.id_producto.nombre_producto }}</td>
+    <td>{{ item.cantidad }}</td>
+    <td>S/. {{ item.subtotal }}</td>
+    <td>
+      <a href="{% url 'producto:eliminar_producto_carrito' item.id_producto_carrito %}">Eliminar</a>
+    </td>
+  </tr>
+  {% endfor %}
+</tbody>
+</table>
+
+<p>Total: S/. {{ carrito.total }}</p>
+
+<a href="{% url 'producto:lista_productos' %}">Seguir comprando</a>
+
+<form action="{% url 'pedidos:nuevo_pedido' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Pagar</button>
+</form>
+
+{% else %}
+<p>Tu carrito está vacío.</p>
+<a href="{% url 'producto:lista_productos' %}">Volver al catálogo</a>
+{% endif %}
+
+{% if messages %}
+  <ul>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+</div>
+{% endblock %}
