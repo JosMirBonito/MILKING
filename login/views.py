@@ -44,3 +44,7 @@ def home(request):
 @login_required
 def operador_dashboard(request):
     return render(request, 'operador/dashboard.html')
+
+@login_required
+def vista_directivo(request):
+    return render(request, 'reporte/vista_directivo.html')

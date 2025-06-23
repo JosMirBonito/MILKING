@@ -35,4 +35,9 @@
   </table>
   <p><strong>Total:</strong> {{ total }}</p>
   <a href="{% url 'ver_solicitudes_pedido' %}">Volver a solicitudes</a>
+
+  <!-- Suponiendo que la imagen se llama 'mapa.png' y está en static/img/ -->
+  <img src="{% static 'spedidos/mapa.png' %}" alt="Mapa de entrega" style="margin-top:20px; border:1px solid #ccc;">
+  
+ 
 </div>

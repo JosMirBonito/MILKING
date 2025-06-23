@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Registrar conformidad para el pedido #{{ pedido.id_pedido }}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Registrar conformidad</button>
+</form>
+{% endblock %}

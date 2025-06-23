@@ -66,3 +66,14 @@ class Pago(models.Model):
 
     def __str__(self):
         return f'Pago {self.id_pago} - Pedido {self.pedido.id_pedido} - {self.estado}'
+    
+class DocumentoConformidad(models.Model):
+    id_documento_conformidad = models.AutoField(primary_key=True)
+    id_pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+    fecha_recepcion = models.DateField()
+    nombre_receptor = models.CharField(max_length=50)
+    firma_receptor = models.BooleanField()
+    fecha_conformidad = models.DateField()
+
+    def __str__(self):
+        return f'Documento Conformidad {self.id_documento_conformidad}'

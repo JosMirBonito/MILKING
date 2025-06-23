@@ -21,28 +21,7 @@ class Cliente(models.Model):
         return self.nombre_cliente
 
 
-class DocumentoMercantil(models.Model):
-    id_documento_mercantil = models.AutoField(primary_key=True)
-    id_pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
-    direccion = models.CharField(max_length=50)
-    email = models.CharField(max_length=50)
-    num_celular = models.CharField(max_length=9)
-    fecha_emision = models.DateField()
-    firma_recepcion = models.BooleanField()
 
-    def __str__(self):
-        return f'Documento Mercantil {self.id_documento_mercantil}'
-
-class DocumentoConformidad(models.Model):
-    id_documento_conformidad = models.AutoField(primary_key=True)
-    id_pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
-    fecha_recepcion = models.DateField()
-    nombre_receptor = models.CharField(max_length=50)
-    firma_receptor = models.BooleanField()
-    fecha_conformidad = models.DateField()
-
-    def __str__(self):
-        return f'Documento Conformidad {self.id_documento_conformidad}'
 
 
 class Directivo(models.Model):

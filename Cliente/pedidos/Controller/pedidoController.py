@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from ..forms import PedidoForm, PagoForm, EnvioForm
+from ..forms import PedidoForm, PagoForm, EnvioForm , ConformidadForm
 from django.contrib.auth.decorators import login_required
-from ..models import Pedido, CarritoCompras, ProductoCarrito, DetallePedido, Pago, MetodoPago
+from ..models import Pedido, CarritoCompras, ProductoCarrito, DetallePedido, Pago, MetodoPago, DocumentoConformidad
 from django.shortcuts import get_object_or_404
 from django.contrib import messages 
 from django.utils import timezone
@@ -138,3 +138,27 @@ def cancelar_pedido(request, pedido_id):
         pedido.delete()
         messages.success(request, "Pedido cancelado exitosamente.")
     return redirect('pedidos:dashboard_pedidos')
+
+
+def registrar_conformidad(request, pedido_id):
+    pedido = get_object_or_404(Pedido, id_pedido=pedido_id)
+    if request.method == "POST":
+        form = ConformidadForm(request.POST)
+        if form.is_valid():
+            # Cambia el estado del pedido
+            pedido.estado_envio = "Entregado"
+            pedido.save()
+            # Guarda el documento de conformidad
+            DocumentoConformidad.objects.create(
+                id_pedido=pedido,
+                fecha_recepcion=timezone.now().date(),
+                nombre_receptor=request.user.get_full_name() or request.user.username,
+                firma_receptor=form.cleaned_data['conforme'],
+                fecha_conformidad=timezone.now().date(),
+                # Si tienes el campo comentario en el form:
+                # comentario=form.cleaned_data.get('comentario', '')
+            )
+            return render(request, 'pedidos/gracias.html')
+    else:
+        form = ConformidadForm()
+    return render(request, 'pedidos/registrar_conformidad.html', {'form': form, 'pedido': pedido})

@@ -19,3 +19,8 @@ class EnvioForm(forms.Form):
     direccion = forms.CharField(max_length=200, label="Dirección de envío")
     telefono = forms.CharField(max_length=20, label="Teléfono de contacto")
     referencia = forms.CharField(max_length=200, label="Referencia", required=False)
+
+
+class ConformidadForm(forms.Form):
+    conforme = forms.BooleanField(label="¿Está conforme con su pedido?", required=True)
+    comentario = forms.CharField(label="Comentario", required=False, widget=forms.Textarea)

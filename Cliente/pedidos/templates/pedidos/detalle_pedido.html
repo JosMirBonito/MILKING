@@ -52,6 +52,12 @@
       <button type="submit">Cancelar Pedido</button>
     </form>
     {% endif %}
+
+    {% if pedido.estado_envio == "En camino" %}
+    <form method="get" action="{% url 'pedidos:registrar_conformidad' pedido.id_pedido %}">
+        <button type="submit" class="btn btn-success">Registrar conformidad</button>
+    </form>
+    {% endif %}
   </div>
 </div>
 {% endblock %}

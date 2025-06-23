@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clientes Más Frecuentes</title>
+</head>
+<body>
+    <h1>Reporte de Clientes Más Frecuentes</h1>
+    <table border="1">
+        <tr>
+            <th>Nombre del Cliente</th>
+            <th>Cantidad de Pedidos</th>
+        </tr>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{ cliente.nombre_cliente }}</td>
+            <td>{{ cliente.total_pedidos }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="2">No hay pedidos registrados.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

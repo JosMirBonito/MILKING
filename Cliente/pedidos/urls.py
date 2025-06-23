@@ -15,4 +15,6 @@ urlpatterns = [
 
     # Nueva ruta para cancelar pedido
     path('cancelar/<int:pedido_id>/', pedidoController.cancelar_pedido, name='cancelar_pedido'),
+
+    path('registrar_conformidad/<int:pedido_id>/', pedidoController.registrar_conformidad, name='registrar_conformidad'),
 ]

@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'inicio',
     'Operador.Inventario',
     'Operador.SPedidos',
-    
+    'Directivo',
         
 ]
 

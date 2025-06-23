@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vista Directivo</title>
+</head>
+<body>
+    <h1>Bienvenido, Directivo</h1>
+    <p>Esta es la vista del directivo.</p>
+    <a href="{% url 'reporte_operaciones_inventario' %}">Ver reporte de operaciones de inventario</a>
+    <a href="{% url 'reporte_productos_sin_stock' %}">Reporte de productos con stock 0</a>
+    <a href="{% url 'reporte_atencion_pedidos' %}">Ver Reporte de Atención de Pedidos</a>
+    <a href="{% url 'reporte_clientes_frecuentes' %}">Reporte de clientes más frecuentes</a>
+</body>
+</html>

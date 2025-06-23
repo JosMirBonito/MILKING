@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reporte de Productos sin Stock</title>
+</head>
+<body>
+    <h1>Productos con Stock 0</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+        </tr>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.id_producto }}</td>
+            <td>{{ producto.nombre_producto }}</td>
+            <td>{{ producto.id_categoria.nombre_categoria }}</td>
+            <td>{{ producto.precio }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">No hay productos sin stock.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
