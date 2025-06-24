@@ -72,3 +72,29 @@
     color: #ff6347;
     font-size: 1.2em;
 }
+
+/* Agrega esto a ver_inventario.css */
+.solicitudes-link {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.logout-link {
+    display: inline-block;
+    margin-left: 10px;
+    background: #e74c3c;
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.logout-link:hover {
+    background: #c0392b;
+}

@@ -1,26 +1,30 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Reporte de Inventario</title>
+    <link rel="stylesheet" href="{% static 'inventario/reporte_inventario.css' %}">
 </head>
 <body>
-    <h1>Reporte de Inventario</h1>
-    <table border="1">
-        <tr>
-            <th>Nombre</th>
-            <th>Categoría</th>
-            <th>Precio</th>
-            <th>Stock</th>
-        </tr>
-        {% for producto in productos %}
-        <tr>
-            <td>{{ producto.nombre_producto }}</td>
-            <td>{{ producto.id_categoria.nombre_categoria }}</td>
-            <td>{{ producto.precio }}</td>
-            <td>{{ producto.stock }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <a href="{% url 'ver_inventario' %}">Volver al inventario</a>
+    <div class="reporte-inventario-root">
+        <h1>Reporte de Inventario</h1>
+        <table class="reporte-inventario-table">
+            <tr>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Precio</th>
+                <th>Stock</th>
+            </tr>
+            {% for producto in productos %}
+            <tr>
+                <td>{{ producto.nombre_producto }}</td>
+                <td>{{ producto.id_categoria.nombre_categoria }}</td>
+                <td>{{ producto.precio }}</td>
+                <td>{{ producto.stock }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'ver_inventario' %}" class="volver-link">Volver al inventario</a>
+    </div>
 </body>
 </html>

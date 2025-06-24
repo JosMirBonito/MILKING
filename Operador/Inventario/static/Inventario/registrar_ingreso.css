@@ -1,0 +1,86 @@
+.registrar-ingreso-container {
+    --azul: #2563eb;
+    --azul-hover: #1746a0;
+    --gris-fondo: #f8fafc;
+    --gris-borde: #c9d6f5;
+    --sombra: 0 4px 24px rgba(58, 134, 255, 0.10);
+
+    background: var(--gris-fondo);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+.registrar-ingreso-container h1 {
+    color: var(--azul);
+    margin-bottom: 1.5em;
+    font-size: 2em;
+    letter-spacing: 1px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.registrar-ingreso-container form {
+    background: #fff;
+    padding: 2em 2.5em 1.5em 2.5em;
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    min-width: 320px;
+}
+
+.registrar-ingreso-container label {
+    color: var(--azul);
+    font-weight: 600;
+    margin-bottom: 0.3em;
+    text-align: left;
+}
+
+.registrar-ingreso-container input[type="number"] {
+    padding: 0.7em;
+    border: 1.5px solid var(--gris-borde);
+    border-radius: 6px;
+    font-size: 1em;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.registrar-ingreso-container input[type="number"]:focus {
+    border-color: var(--azul);
+}
+
+.registrar-ingreso-container button[type="submit"] {
+    background: var(--azul);
+    color: #fff;
+    padding: 0.8em 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.08em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5em;
+}
+
+.registrar-ingreso-container button[type="submit"]:hover {
+    background: var(--azul-hover);
+}
+
+.registrar-ingreso-container a {
+    display: inline-block;
+    margin-top: 1.5em;
+    color: var(--azul);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.registrar-ingreso-container a:hover {
+    color: var(--azul-hover);
+    text-decoration: underline;
+}

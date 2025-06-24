@@ -1,19 +1,32 @@
-<h1>Solicitudes de Pedido</h1>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Cliente</th>
-        <th>Fecha</th>
-        <th>Acciones</th>
-    </tr>
-    {% for pedido in pedidos %}
-    <tr>
-        <td>{{ pedido.id_pedido }}</td>
-        <td>{{ pedido.nombre_cliente }}</td>
-        <td>{{ pedido.fecha }}</td>
-        <td>
-            <a href="{% url 'ver_solicitud_pedido' pedido.id_pedido %}">Ver Detalle</a>
-        </td>
-    </tr>
-    {% endfor %}
-</table>
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitudes de Pedido</title>
+    <link rel="stylesheet" href="{% static 'SPedidos/ver_solicitudes.css' %}">
+</head>
+<body>
+    <h1>Solicitudes de Pedido</h1>
+    <table class="solicitudes-container">
+        <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+        {% for pedido in pedidos %}
+        <tr>
+            <td>{{ pedido.id_pedido }}</td>
+            <td>{{ pedido.nombre_cliente }}</td>
+            <td>{{ pedido.fecha }}</td>
+            <td>
+                <a href="{% url 'ver_solicitud_pedido' pedido.id_pedido %}">Ver Detalle</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <button onclick="window.history.back()" class="volver-btn">Volver</button>
+</body>
+</html>

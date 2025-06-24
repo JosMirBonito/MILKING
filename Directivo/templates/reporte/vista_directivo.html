@@ -1,14 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Vista Directivo</title>
+    <meta charset="UTF-8">
+    <title>Panel Directivo</title>
+    <link rel="stylesheet" href="{% static 'directivo/vista_directivo.css' %}">
 </head>
 <body>
-    <h1>Bienvenido, Directivo</h1>
-    <p>Esta es la vista del directivo.</p>
-    <a href="{% url 'reporte_operaciones_inventario' %}">Ver reporte de operaciones de inventario</a>
-    <a href="{% url 'reporte_productos_sin_stock' %}">Reporte de productos con stock 0</a>
-    <a href="{% url 'reporte_atencion_pedidos' %}">Ver Reporte de Atención de Pedidos</a>
-    <a href="{% url 'reporte_clientes_frecuentes' %}">Reporte de clientes más frecuentes</a>
+    <div class="directivo-root">
+        <h1>Panel del Directivo</h1>
+        <p>Esta es la vista del directivo.</p>
+        <a href="{% url 'reporte_operaciones_inventario' %}">Ver reporte de operaciones de inventario</a>
+        <a href="{% url 'reporte_productos_sin_stock' %}">Reporte de productos con stock 0</a>
+        <a href="{% url 'reporte_atencion_pedidos' %}">Ver Reporte de Atención de Pedidos</a>
+        <a href="{% url 'reporte_clientes_frecuentes' %}">Reporte de clientes más frecuentes</a>
+        <a href="{% url 'logout' %}" class="logout-link">Cerrar sesión</a>
+    </div>
 </body>
 </html>

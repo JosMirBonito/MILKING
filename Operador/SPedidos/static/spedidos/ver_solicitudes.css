@@ -1,0 +1,76 @@
+/* Aplica solo a la tabla de solicitudes */
+.solicitudes-container {
+    --bg-color: #f7f9fa;
+    --table-bg: #fff;
+    --primary: #3498db;
+    --primary-dark: #217dbb;
+    --header-bg: #2c3e50;
+    --header-color: #fff;
+    --row-hover: #eaf6fb;
+    --border-color: #d1d8e0;
+    --action-bg: #27ae60;
+    --action-bg-hover: #219150;
+    --action-color: #fff;
+
+    background: var(--table-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.08);
+    border-collapse: collapse;
+    width: 90%;
+    margin: 30px auto;
+    overflow: hidden;
+}
+
+.solicitudes-container th,
+.solicitudes-container td {
+    padding: 14px 18px;
+    text-align: left;
+}
+
+.solicitudes-container th {
+    background: var(--header-bg);
+    color: var(--header-color);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid var(--primary);
+}
+
+.solicitudes-container tr {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.solicitudes-container tr:hover {
+    background: var(--row-hover);
+    transition: background 0.2s;
+}
+
+.solicitudes-container a {
+    background: var(--action-bg);
+    color: var(--action-color);
+    padding: 7px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.solicitudes-container a:hover {
+    background: var(--action-bg-hover);
+}
+
+.volver-btn {
+    background: #2563eb;
+    color: #fff;
+    padding: 10px 28px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 18px;
+    transition: background 0.2s;
+}
+
+.volver-btn:hover {
+    background: #1746a0;
+}
